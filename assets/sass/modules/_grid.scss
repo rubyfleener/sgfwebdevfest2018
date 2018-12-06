@@ -1,0 +1,260 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+    background-color: $darkpurple;
+
+    grid-template-areas:
+    "top bottom";
+
+}
+
+.section_1 { 
+    grid-area: top; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    .modal-window {
+        position: fixed;
+        background-image:
+            linear-gradient(
+            to bottom right, 
+            #15132C, #1F1B51
+            );
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+        &:target {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        &>div {
+          width: 400px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 2em;
+          background: #ffffff;
+          color: #333333;
+        }
+        header {
+          font-weight: bold;
+        }
+        h1 {
+          font-size: 150%;
+          margin: 0 auto;
+          color: #D1FAC4;
+          text-align: center;
+
+        }
+
+        .flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+      }
+
+      
+      .modal-close {
+        color: #8679F2;
+        text-decoration: underline;
+        line-height: 50px;
+        font-size: 80%;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+        width: 70px;
+        &:hover {
+          color: #000;
+        }
+      }
+
+    .active:hover {
+        transform-origin: 0 0;
+        transform: perspective(600px) rotateX(30deg);
+        transition: transform .3s;
+        background-color: $darkpurple;
+        
+    }
+
+
+    .item-01 {
+        background-image:
+            linear-gradient(
+            to bottom left, 
+            $coral, $purple
+            );
+    }
+
+    .item-08, .item-04 {
+        background-image:
+            linear-gradient(
+            to bottom right, 
+            $coral, $purple
+            );
+    }
+
+    .item-09 {
+        background-image:
+            linear-gradient(
+            to top right, 
+            $coral, $purple
+            );
+    }
+
+
+    .item-01, .item-04, .item-09 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .item-02 {
+        background: url(/images/w-myke.png) no-repeat;
+        background-size: cover;
+        grid-column: span 2;
+        grid-row: span 2;
+
+        img {
+            height: 355px;
+            width: 226px;
+        }
+    }
+
+    .item-03, .item-05 {
+        background-color: $lightpink;
+
+    }
+
+    .item-06 {
+        background: url(/images/dude-hat.png);
+        background-size: cover;
+    }
+
+    .item-07 {
+        background: url(/images/vcrowd.png);
+        background-size: cover;
+    }
+
+    
+}
+
+.section_2 {
+    grid-area: bottom;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    .active:hover {
+        transform: perspective(600px) rotateX(30deg);
+        transition: transform .3s;
+        background-color: $darkpurple;
+        
+    }
+
+    .item-10{
+        background-image:
+            linear-gradient(
+            to top right, 
+            $coral, $purple
+        );
+    }
+
+    .item-15 {
+        background-image:
+            linear-gradient(
+            to bottom right, 
+            $coral, $purple
+        );
+    }
+
+    .item-10 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .item-12 {
+        grid-row: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+
+        .active:hover {
+            transform: perspective(600px) rotateX(30deg);
+            transition: transform .3s;
+            background-color: $darkpurple;
+        }
+
+        .nested {
+            background-image:
+                linear-gradient(
+                    to bottom right, 
+                    $coral, $purple
+                    );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .nested_empty {
+            background-color: $lightpink;
+        }
+    }
+
+    .item-11, .item-13 {
+        background-color: $lightpink;
+
+    }
+
+    .item-14 {
+        background: url(/images/oldlady.png);
+        background-size: cover;
+    }
+
+    .item-15 {
+        grid-row: span 2;
+        grid-column: 1fr;
+    }
+
+    .item-16 {
+        grid-column: span 2;
+        grid-row: span 2;
+        background: url(/images/meeting.png);
+        background-size: cover;
+    }
+
+    img {
+        padding: 10px;
+    }
+}
+
+
+
+@include mq-medium {
+
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "top"
+            "bottom";
+    }
+}
